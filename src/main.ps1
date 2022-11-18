@@ -649,11 +649,8 @@ $essentialtweaks.Add_Click({
             Log("Trying to disable $($Service.DisplayName)")
         }
     }
+       Log("Disabling some services and scheduled tasks done...")
 
-
-    #disable widgets just install from store if needed again (make e seperate button for this one?)
-    winget uninstall "windows web experience pack" --silent
-    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type DWord -Value 0
 
 
     #Disable Delivery Optimization
@@ -708,6 +705,9 @@ $essentialtweaks.Add_Click({
         Log("Task `"$($_)`" was disabled")
     }
 
+
+
+
     if(!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching")){ New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" -Force -ErrorAction SilentlyContinue }
     if(!(Test-Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power")){ New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Force -ErrorAction SilentlyContinue }
     if(!(Test-Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling")){ New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" -Force -ErrorAction SilentlyContinue }
@@ -738,6 +738,16 @@ $essentialtweaks.Add_Click({
     New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e' -Name 'ACSettingIndex' -Value 0 -PropertyType DWord -Force -ea SilentlyContinue;
     New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e' -Name 'DCSettingIndex' -Value 0 -PropertyType DWord -Force -ea SilentlyContinue;
     New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c' -Name 'ACSettingIndex' -Value 0 -PropertyType DWord -Force -ea SilentlyContinue;
+
+
+
+    Log("winget uninstall windows web experience pack --silent broken on newst windows wants a answer ")
+
+            #disable widgets just install from store if needed again (make e seperate button for this one?)
+    winget uninstall "windows web experience pack"
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type DWord -Value 0
+    
+    Log("winget uninstall windows web experience pack --silent done..")
 
     Stop-Process -Name explorer
     Log("Tweaks are done!")
@@ -1493,7 +1503,7 @@ $InstallChrome.Add_Click({
             $Start
         )
 
-        $ChromeLink = "http://dl.google.com/chrome/install/375.126/chrome_installer.exe";
+        $ChromeLink = "";
 
         if (!(Test-Path (Join-Path -Path $Directory -ChildPath 'chromeSetup.exe')))
         {
