@@ -577,68 +577,90 @@ $essentialtweaks.Add_Click({
     Log("Disabling some services and scheduled tasks")
 
     $Services = @(
-        #"*xbox*" # Xbox Services
-        #"*Xbl*" # Xbox Services
-        #"XboxNetApiSvc" # Xbox Services
-        "LanmanWorkstation" # Causes problems with Mapped Drives and File Sharing Programs!
-        "workfolderssvc" # Causes problems with Mapped Drives and File Sharing Programs!
-        #"WSearch" # Windows Search
-        #"PushToInstall" # Needed for Microsoft Store
-        "icssvc" # Mobile Hotspot
+    
         "MixedRealityOpenXRSvc" # Mixed Reality
+	
         "WMPNetworkSvc" # Windows Media Player Sharing
-        #"LicenseManager" # License Manager for Microsoft Store
-        #"wisvc" # Insider Program
         "WerSvc" # Error Reporting
         "WalletService" # Wallet Service
         "lmhosts" # TCP/IP NetBIOS Helper
         "SysMain" # SuperFetch - Safe to disable if you have a SSD
         "svsvc" # Spot Verifier
         "sppsvc" # Software Protection
+	
         "SCPolicySvc" # Smart Card Removal Policy
         "ScDeviceEnum" # Smart Card Device Enumeration Service
         "SCardSvr" # Smart Card
-        "LanmanServer" # Server # Causes problems with Mapped Drives and File Sharing Programs!
+	
         "SensorService" # Sensor Service
-        "RetailDemo" # Retail Demo Service
+
         "RemoteRegistry" # Remote Registry # Issue by V1ce
         "UmRdpService" # Remote Desktop Services UserMode Port Redirector # Issue by V1ce
         "TermService" # Remote Desktop Services # Issue by V1ce
         "SessionEnv" # Remote Desktop Configuration # Issue by V1ce
         "RasMan" # Remote Access Connection Manager # Issue by V1ce
         "RasAuto" # Remote Access Auto Connection Manager # Issue by V1ce
+	
         "TroubleshootingSvc" # Recommended Troubleshooting Service
-        "RmSvc" # Radio Management Service (Might be needed for laptops)
-        "QWAVE" # Quality Windows Audio Video Experience
-        "wercplsupport" # Problem Reports Control Panel Support
-        "Spooler" # Print Spooler # Issue by V1ce
-        "PrintNotify" # Printer Extensions and Notifications # Issue by V1ce
-        "PhoneSvc" # Phone Service
-        "SEMgrSvc" # Payments and NFC/SE Manager
+	"wercplsupport" # Problem Reports Control Panel Support
+	
+        #"QWAVE" # Quality Windows Audio Video Experience
+
         "WpcMonSvc" # Parental Controls
-        "CscService" # Offline Files
+
         #"InstallService" # Microsoft Store Install Service
-        "SmsRouter" # Microsoft Windows SMS Router Service
+
         "smphost" # Microsoft Storage Spaces SMP
         "NgcCtnrSvc" # Microsoft Passport Container
-        "MsKeyboardFilter" # Microsoft Keyboard Filter ... thanks (.AtomRadar treasury â™›#8267) for report. 
+        "MsKeyboardFilter" # Microsoft Keyboard Filter ... thanks (.AtomRadar treasury Ã¢â„¢â€º#8267) for report. 
         "cloudidsvc" # Microsoft Cloud Identity Service
         "wlidsvc" # Microsoft Account Sign-in Assistant
         "*diagnosticshub*" # Microsoft (R) Diagnostics Hub Standard Collector Service
         #"iphlpsvc" # IP Helper - Might break some VPN Clients
         "lfsvc" # Geolocation Service # Issue by V1ce
         "fhsvc" # File History Service # Issue by V1ce
-        "Fax" # Fax # Issue by V1ce
+
         "embeddedmode" # Embedded Mode
         "MapsBroker" # Downloaded Maps Manager
         "TrkWks" # Distributed Link Tracking Client
-        "WdiSystemHost" # Diagnostic System Host
-        "WdiServiceHost" # Diagnostic Service Host
+
         "DPS" # Diagnostic Policy Service
+	"WdiSystemHost" # Diagnostic System Host
+        "WdiServiceHost" # Diagnostic Service Host
         "diagsvc" # Diagnostic Execution Service
-        #"DusmSvc" # Data Usage
+	
+
         #"VaultSvc" # Credential Manager
         #"AppReadiness" # App Readiness
+	
+	
+	#"wisvc" # Insider Program
+	"Spooler" # Print Spooler # Issue by V1ce
+        "PrintNotify" # Printer Extensions and Notifications # Issue by V1ce
+	
+	#"WSearch" # Windows Search
+        "SEMgrSvc" # Payments and NFC/SE Manager
+	#"LicenseManager" # License Manager for Microsoft Store       
+        #"icssvc" # Mobile Hotspot
+	"CscService" # Offline Files
+		
+	#"DusmSvc" # Data Usage
+	"RmSvc" # Radio Management Service (Might be needed for laptops)
+	"SmsRouter" # Microsoft Windows SMS Router Service
+	"Fax" # Fax # Issue by V1ce
+	"PhoneSvc" # Phone Service
+		
+	#"*xbox*" # Xbox Services
+        #"*Xbl*" # Xbox Services
+        #"XboxNetApiSvc" # Xbox Services
+	
+	"LanmanServer" # Server # Causes problems with Mapped Drives and File Sharing Programs!
+        "LanmanWorkstation" # Causes problems with Mapped Drives and File Sharing Programs!
+        "workfolderssvc" # Causes problems with Mapped Drives and File Sharing Programs!
+	
+	"RetailDemo" # Retail Demo Service
+        #"PushToInstall" # Needed for Microsoft Store
+	
     )
 
     #Disable Services listed above
@@ -1280,69 +1302,95 @@ $RestoreTweaks.Add_Click({
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name GlobalMaxTcpWindowSize -Force 
 
     $Services = @(
-        #"*xbox*" # Xbox Services
-        #"*Xbl*" # Xbox Services
-        #"XboxNetApiSvc" # Xbox Services
-        "LanmanWorkstation" # Causes problems with Mapped Drives and File Sharing Programs!
-        "workfolderssvc" # Causes problems with Mapped Drives and File Sharing Programs!
-        #"WSearch" # Windows Search
-        #"PushToInstall" # Needed for Microsoft Store
-        "icssvc" # Mobile Hotspot
+    
         "MixedRealityOpenXRSvc" # Mixed Reality
+	
         "WMPNetworkSvc" # Windows Media Player Sharing
-        #"LicenseManager" # License Manager for Microsoft Store
-        #"wisvc" # Insider Program
         "WerSvc" # Error Reporting
         "WalletService" # Wallet Service
         "lmhosts" # TCP/IP NetBIOS Helper
         "SysMain" # SuperFetch - Safe to disable if you have a SSD
         "svsvc" # Spot Verifier
         "sppsvc" # Software Protection
+	
         "SCPolicySvc" # Smart Card Removal Policy
         "ScDeviceEnum" # Smart Card Device Enumeration Service
         "SCardSvr" # Smart Card
-        "LanmanServer" # Server # Causes problems with Mapped Drives and File Sharing Programs!
+	
         "SensorService" # Sensor Service
-        "RetailDemo" # Retail Demo Service
+
         "RemoteRegistry" # Remote Registry # Issue by V1ce
         "UmRdpService" # Remote Desktop Services UserMode Port Redirector # Issue by V1ce
         "TermService" # Remote Desktop Services # Issue by V1ce
         "SessionEnv" # Remote Desktop Configuration # Issue by V1ce
         "RasMan" # Remote Access Connection Manager # Issue by V1ce
         "RasAuto" # Remote Access Auto Connection Manager # Issue by V1ce
+	
         "TroubleshootingSvc" # Recommended Troubleshooting Service
-        "RmSvc" # Radio Management Service (Might be needed for laptops)
-        "QWAVE" # Quality Windows Audio Video Experience
-        "wercplsupport" # Problem Reports Control Panel Support
-        "Spooler" # Print Spooler # Issue by V1ce
-        "PrintNotify" # Printer Extensions and Notifications # Issue by V1ce
-        "PhoneSvc" # Phone Service
-        "SEMgrSvc" # Payments and NFC/SE Manager
+	"wercplsupport" # Problem Reports Control Panel Support
+	
+        #"QWAVE" # Quality Windows Audio Video Experience
+
         "WpcMonSvc" # Parental Controls
-        "CscService" # Offline Files
+
         #"InstallService" # Microsoft Store Install Service
-        "SmsRouter" # Microsoft Windows SMS Router Service
+
         "smphost" # Microsoft Storage Spaces SMP
         "NgcCtnrSvc" # Microsoft Passport Container
-        "MsKeyboardFilter" # Microsoft Keyboard Filter ... thanks (.AtomRadar treasury â™›#8267) for report. 
+        "MsKeyboardFilter" # Microsoft Keyboard Filter ... thanks (.AtomRadar treasury Ã¢â„¢â€º#8267) for report. 
         "cloudidsvc" # Microsoft Cloud Identity Service
         "wlidsvc" # Microsoft Account Sign-in Assistant
         "*diagnosticshub*" # Microsoft (R) Diagnostics Hub Standard Collector Service
         #"iphlpsvc" # IP Helper - Might break some VPN Clients
         "lfsvc" # Geolocation Service # Issue by V1ce
         "fhsvc" # File History Service # Issue by V1ce
-        "Fax" # Fax # Issue by V1ce
+
         "embeddedmode" # Embedded Mode
         "MapsBroker" # Downloaded Maps Manager
         "TrkWks" # Distributed Link Tracking Client
-        "WdiSystemHost" # Diagnostic System Host
-        "WdiServiceHost" # Diagnostic Service Host
+
         "DPS" # Diagnostic Policy Service
+	"WdiSystemHost" # Diagnostic System Host
+        "WdiServiceHost" # Diagnostic Service Host
         "diagsvc" # Diagnostic Execution Service
-        #"DusmSvc" # Data Usage
+	
+
         #"VaultSvc" # Credential Manager
         #"AppReadiness" # App Readiness
+	
+	
+	#"wisvc" # Insider Program
+	"Spooler" # Print Spooler # Issue by V1ce
+        "PrintNotify" # Printer Extensions and Notifications # Issue by V1ce
+	
+	#"WSearch" # Windows Search
+        "SEMgrSvc" # Payments and NFC/SE Manager
+	#"LicenseManager" # License Manager for Microsoft Store       
+        #"icssvc" # Mobile Hotspot
+	"CscService" # Offline Files
+		
+	#"DusmSvc" # Data Usage
+	"RmSvc" # Radio Management Service (Might be needed for laptops)
+	"SmsRouter" # Microsoft Windows SMS Router Service
+	"Fax" # Fax # Issue by V1ce
+	"PhoneSvc" # Phone Service
+		
+	#"*xbox*" # Xbox Services
+        #"*Xbl*" # Xbox Services
+        #"XboxNetApiSvc" # Xbox Services
+	
+	"LanmanServer" # Server # Causes problems with Mapped Drives and File Sharing Programs!
+        "LanmanWorkstation" # Causes problems with Mapped Drives and File Sharing Programs!
+        "workfolderssvc" # Causes problems with Mapped Drives and File Sharing Programs!
+	
+	"RetailDemo" # Retail Demo Service
+        #"PushToInstall" # Needed for Microsoft Store
+	
     )
+    
+    
+    
+    
     $Services | ForEach-Object{
         try {
             Set-Service -Name $_ -StartupType Automatic -ErrorAction Stop | Out-Null
