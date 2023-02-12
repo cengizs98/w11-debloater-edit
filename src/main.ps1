@@ -1280,18 +1280,18 @@ $RestoreTweaks.Add_Click({
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name GlobalMaxTcpWindowSize -Force 
 
     $Services = @(
-        "XboxNetApiSvc" # Xbox Services
-        "*xbox*" # Xbox Services
-        "*Xbl*" # Xbox Services
-        "LanmanWorkstation" # Commented out so people won't bother me anymore to fix File Sharing. I'd still disable em tho
-        "workfolderssvc" # Commented out so people won't bother me anymore to fix File Sharing. I'd still disable em tho
-        "WSearch" # Windows Search
+        #"*xbox*" # Xbox Services
+        #"*Xbl*" # Xbox Services
+        #"XboxNetApiSvc" # Xbox Services
+        "LanmanWorkstation" # Causes problems with Mapped Drives and File Sharing Programs!
+        "workfolderssvc" # Causes problems with Mapped Drives and File Sharing Programs!
+        #"WSearch" # Windows Search
         #"PushToInstall" # Needed for Microsoft Store
         "icssvc" # Mobile Hotspot
         "MixedRealityOpenXRSvc" # Mixed Reality
         "WMPNetworkSvc" # Windows Media Player Sharing
-        "LicenseManager" # License Manager for Microsoft Store
-        "wisvc" # Insider Program
+        #"LicenseManager" # License Manager for Microsoft Store
+        #"wisvc" # Insider Program
         "WerSvc" # Error Reporting
         "WalletService" # Wallet Service
         "lmhosts" # TCP/IP NetBIOS Helper
@@ -1301,26 +1301,26 @@ $RestoreTweaks.Add_Click({
         "SCPolicySvc" # Smart Card Removal Policy
         "ScDeviceEnum" # Smart Card Device Enumeration Service
         "SCardSvr" # Smart Card
-        "LanmanServer" # Server # Commented out so people won't bother me anymore to fix File Sharing. I'd still disable em tho
+        "LanmanServer" # Server # Causes problems with Mapped Drives and File Sharing Programs!
         "SensorService" # Sensor Service
         "RetailDemo" # Retail Demo Service
-        "RemoteRegistry" # Remote Registry
-        "UmRdpService" # Remote Desktop Services UserMode Port Redirector
-        "TermService" # Remote Desktop Services
-        "SessionEnv" # Remote Desktop Configuration
-        "RasMan" # Remote Access Connection Manager
-        "RasAuto" # Remote Access Auto Connection Manager
+        "RemoteRegistry" # Remote Registry # Issue by V1ce
+        "UmRdpService" # Remote Desktop Services UserMode Port Redirector # Issue by V1ce
+        "TermService" # Remote Desktop Services # Issue by V1ce
+        "SessionEnv" # Remote Desktop Configuration # Issue by V1ce
+        "RasMan" # Remote Access Connection Manager # Issue by V1ce
+        "RasAuto" # Remote Access Auto Connection Manager # Issue by V1ce
         "TroubleshootingSvc" # Recommended Troubleshooting Service
         "RmSvc" # Radio Management Service (Might be needed for laptops)
         "QWAVE" # Quality Windows Audio Video Experience
         "wercplsupport" # Problem Reports Control Panel Support
-        "Spooler" # Print Spooler
-        "PrintNotify" # Printer Extensions and Notifications
+        "Spooler" # Print Spooler # Issue by V1ce
+        "PrintNotify" # Printer Extensions and Notifications # Issue by V1ce
         "PhoneSvc" # Phone Service
         "SEMgrSvc" # Payments and NFC/SE Manager
         "WpcMonSvc" # Parental Controls
         "CscService" # Offline Files
-        "InstallService" # Microsoft Store Install Service
+        #"InstallService" # Microsoft Store Install Service
         "SmsRouter" # Microsoft Windows SMS Router Service
         "smphost" # Microsoft Storage Spaces SMP
         "NgcCtnrSvc" # Microsoft Passport Container
@@ -1328,10 +1328,10 @@ $RestoreTweaks.Add_Click({
         "cloudidsvc" # Microsoft Cloud Identity Service
         "wlidsvc" # Microsoft Account Sign-in Assistant
         "*diagnosticshub*" # Microsoft (R) Diagnostics Hub Standard Collector Service
-        "iphlpsvc" # IP Helper - Might break some VPN Clients
-        "lfsvc" # Geolocation Service
-        "fhsvc" # File History Service
-        "Fax" # Fax
+        #"iphlpsvc" # IP Helper - Might break some VPN Clients
+        "lfsvc" # Geolocation Service # Issue by V1ce
+        "fhsvc" # File History Service # Issue by V1ce
+        "Fax" # Fax # Issue by V1ce
         "embeddedmode" # Embedded Mode
         "MapsBroker" # Downloaded Maps Manager
         "TrkWks" # Distributed Link Tracking Client
