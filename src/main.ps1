@@ -766,7 +766,7 @@ $essentialtweaks.Add_Click({
     Log("winget uninstall windows web experience pack --silent broken on newst windows wants a answer ")
 
             #disable widgets just install from store if needed again (make e seperate button for this one?)
-    winget uninstall "windows web experience pack"
+    echo 'Y' | winget uninstall "windows web experience pack"
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type DWord -Value 0
     
     Log("winget uninstall windows web experience pack --silent done..")
